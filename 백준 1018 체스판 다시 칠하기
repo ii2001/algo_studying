@@ -1,0 +1,35 @@
+#백준 1018
+#체스판 다시 칠하기
+
+import sys
+
+input=sys.stdin.readline
+
+N,M=map(int,input().split())
+board=[]
+answer=[]
+
+for _ in range(N):
+    board.append(str(input().strip())) #board 배열에 값넣기
+    
+for i in range(N-7):
+    for j in range(M-7): #8*8의 체스판으로 나눔
+        cnt1=0
+        cnt2=0
+        for a in range(i,i+8):
+            for b in range(j,j+8):
+                if (a+b)%2==0: #시작칸
+                    if board[a][b]=='B':
+                        cnt1+=1
+                    else:
+                        cnt2+=1
+                else: #그외의 칸
+                    if board[a][b]=='W':
+                        cnt1+=1
+                    else:
+                        cnt2+=1
+                        
+        #그려야하는개수 배열에 추가
+        answer.append(cnt1)    
+        answer.append(cnt2)
+print(min(answer))
