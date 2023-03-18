@@ -1,0 +1,15 @@
+#백준 11651
+#좌표 정렬하기2
+
+import sys
+
+input=sys.stdin.readline
+ar=[]
+
+N=int(input()) #점의개수 입력
+for _ in range(N): #위치 x,y 입력
+    ar.append(list(map(int,input().split())))
+    
+ar.sort(key=lambda x:(x[1],x[0])) #sort속 key=lambda를 이용해 정리해주기 
+for i in ar:    #결과 출력
+    print(i[0],i[1])
