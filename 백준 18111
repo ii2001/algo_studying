@@ -1,0 +1,31 @@
+#18111
+import sys
+
+input=sys.stdin.readline
+
+N,M,block=map(int,input().split())
+graph=[]
+for _ in range(N):
+    graph+=(list(map(int,input().split())))
+
+min_h=min(graph)
+max_h=max(graph)
+answer,height=10e9,-1
+for h in range(min_h,max_h+1):
+    time=0
+    bck=block
+    for num in graph:
+        if num==h:
+            continue
+        elif num>h:
+            time+=(num-h)*2
+            bck+=(num-h)
+        else:
+            time+=(h-num)
+            bck-=(h-num)
+
+    if answer>=time and bck>=0:
+        answer=time
+        height=h
+
+print(answer, height)
