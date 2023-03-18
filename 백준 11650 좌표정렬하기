@@ -1,0 +1,21 @@
+#백준 11650
+#좌표 정렬하기
+
+import sys
+
+input=sys.stdin.readline
+ar=[]
+
+N=int(input()) #점의개수 입력
+for _ in range(N): #위치 x,y 입력
+    ar.append(list(map(int,input().split())))
+    
+ar.sort() #sort를 이용해 정리해주기 
+for i in ar:    #결과 출력
+    print(i[0],i[1])
+
+'''
+sort로 이중 리스트를
+정렬하면 자동적으로 첫번째인자 
+그 후 두번째 인자순으로 정렬함
+'''
